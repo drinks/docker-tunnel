@@ -25,4 +25,4 @@ RUN DEBIAN_FRONTEND=noninteractive && \
 
 VOLUME ["/ssh-agent"]
 EXPOSE 2222 
-ENTRYPOINT ["/usr/bin/ssh", "-T", "-N", "-p", $SSH_PORT, "-o", "StrictHostKeyChecking=false", "-o", "ServerAliveInterval=180", "-L"]
+ENTRYPOINT ["/usr/bin/ssh", "-T", "-N", "-o", "StrictHostKeyChecking=false", "-o", "ServerAliveInterval=180", "-L"]
