@@ -23,4 +23,4 @@ RUN DEBIAN_FRONTEND=noninteractive && \
 	apt-get clean && \
 	rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/*
 
-ENTRYPOINT ["/usr/bin/ssh", "-N", "-f", "-L"]
+ENTRYPOINT ["/usr/bin/ssh", "-N", "-f", "-o", "StrictHostKeyChecking=false", "-o", "ServerAliveInterval=180", "-L"]
