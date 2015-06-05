@@ -10,7 +10,7 @@
 ###
 
 FROM ubuntu:14.04
-MAINTAINER Kingsquare <docker@kingsquare.nl>
+MAINTAINER Dan Drinkard <dan@nvite.com>
 
 ENV SSH_AUTH_SOCK /ssh-agent
 
@@ -23,6 +23,4 @@ RUN DEBIAN_FRONTEND=noninteractive && \
 	apt-get clean && \
 	rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/*
 
-VOLUME ["/ssh-agent"]
-EXPOSE 2222 
-ENTRYPOINT ["/usr/bin/ssh", "-T", "-N", "-o", "StrictHostKeyChecking=false", "-o", "ServerAliveInterval=180", "-L"]
+ENTRYPOINT ["/usr/bin/ssh", "-N", "-f", "-L"]
